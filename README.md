@@ -3,6 +3,7 @@
 ## Используемые технологии:
 * HTML
 * CSS
+* Bootstrap
 * JavaScript native ES6+
 * Webpack
 * Gulp
