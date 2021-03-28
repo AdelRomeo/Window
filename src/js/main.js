@@ -1,4 +1,9 @@
 //подключаем slider
 import './slider';
+//подключаем функционал по радое с модальными окнами
+import modals from './modules/modals';
 
-console.log(1)
+window.addEventListener('DOMContentLoaded', ()=>{
+  //запускаем модули
+  modals();
+})
