@@ -1,4 +1,4 @@
-const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass) => {
+const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass, display = 'block') => {
   //заголовок в котором нвходятся табы
   const header = document.querySelector(headerSelector);
   //табы переключающие видимый контент
@@ -24,7 +24,7 @@ const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass) => {
   //показ одного конкретного элемента из списка контента
   function showTabContent(i = 0) {
     //показываем элемент контента индеск которого совпадает с индексом таба на который кликнули
-    contents[i].style.display = 'block';
+    contents[i].style.display = display;
 
     //добавляем класс активности табу на который кликнули
     tabs[i].classList.add(activeClass);
