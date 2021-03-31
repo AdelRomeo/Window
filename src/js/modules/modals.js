@@ -14,6 +14,7 @@ const modals = () => {
       //вешаем обработчик на каждый триггер
       trigger.addEventListener('click', (e) => {
         //отменяем действие по умолчанию
+        console.log(1)
         if (e.target) {
           e.preventDefault();
         }
