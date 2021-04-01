@@ -1,10 +1,10 @@
-const forms = () => {
+import checkNumInputs from './checkNumInputs';
+
+const forms = (state) => {
   //все формы со страницы
   const formList = document.querySelectorAll('form');
   //все инпуты
   const inputList = document.querySelectorAll('input');
-  //все инпуты и определенным атрибутом
-  const inputsPhone = document.querySelectorAll('input[name="user_phone"]');
   //список сообщений показываемых пользователю
   const messages = {
     loading: 'Загрузка...',
@@ -12,15 +12,8 @@ const forms = () => {
     error: 'Что-то пошло не так...'
   }
 
-  //перебираем все инпуты
-  inputsPhone.forEach(item => {
-    //вешаем на каждый инпут обработчик
-    //input - событие происходит при каждом изменении значения в поле инпута
-    item.addEventListener('input', () => {
-      //заменяем все НЕчисла в инпуте на ничего
-      item.value = item.value.replace(/\D/, '');
-    });
-  });
+  //валидируем инпуты
+  checkNumInputs('input[name="user_phone"]');
 
   //перебираем все формы
   formList.forEach(form => {
@@ -38,6 +31,14 @@ const forms = () => {
 
       //собираем данные из инпутов формы
       const formData = new FormData(form);
+      //если в форме с которой работаем есть указаный data-attribute
+      if (form.getAttribute('data-calc')=== 'end'){
+        //перебираем объект с данными которые заполнил пользователь
+        for (let k in state){
+          //добавляем даные из state в formData
+          formData.append(k, state[k]);
+        }
+      }
 
       //отправляем запрос с нужными данными
       postData('/assets/server.php', formData)
