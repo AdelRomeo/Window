@@ -18,7 +18,7 @@ const tabs = (headerSelector, tabsSelector, contentsSelector, activeClass, displ
     tabs.forEach(tab => {
       //удаляем у всех классов класс активности
       tab.classList.remove(activeClass);
-    })
+    });
   }
 
   //показ одного конкретного элемента из списка контента
