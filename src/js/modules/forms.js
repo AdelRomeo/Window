@@ -23,7 +23,7 @@ const forms = (state) => {
       //отменяем действие по умолчанию
       e.preventDefault();
 
-      //создаем элемент который быдет показывать сообщение пользователю
+      //создаем элемент который будет показывать сообщение пользователю
       let statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
       //добавляем элемент в форму
@@ -32,9 +32,9 @@ const forms = (state) => {
       //собираем данные из инпутов формы
       const formData = new FormData(form);
       //если в форме с которой работаем есть указаный data-attribute
-      if (form.getAttribute('data-calc')=== 'end'){
+      if (form.getAttribute('data-calc') === 'end') {
         //перебираем объект с данными которые заполнил пользователь
-        for (let k in state){
+        for (let k in state) {
           //добавляем даные из state в formData
           formData.append(k, state[k]);
         }
@@ -56,7 +56,11 @@ const forms = (state) => {
           inputList.forEach(input => {
             //очищаем инпуты
             input.value = '';
+            //очишаем state
+            state = {};
             setTimeout(() => {
+              //закрываем popup
+              document.querySelector('.popup_calc_end').style.display = 'none';
               //удаляем сообщение информирующие пользователя
               statusMessage.remove();
             }, 3000)
