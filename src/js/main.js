@@ -11,7 +11,12 @@ import showImages from './modules/showImages';
 window.addEventListener('DOMContentLoaded', ()=>{
 
   //объект в котором хранятся данные с нескольких модальных окон для отправки на сервер
-  const modalState = {};
+  const modalState = {
+    'form': 0,
+    'type': 'tree',
+    'width': false,
+    'height': false,
+  };
 
   //до какого времени будет осчитываться таймер
   const deadLine = '2021-04-26';

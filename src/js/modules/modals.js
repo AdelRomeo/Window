@@ -1,9 +1,9 @@
 const modals = () => {
   //функция по работе с модальными окнами
   //triggerSelector - кнопка отрывающая модальное окно
-  //modalSelector - модальное окно с которым сейча работаем
+  //modalSelector - модальное окно с которым сейчас работаем
   //closeSelector - кнопка закрывающая модальное окно
-  //closeClickOverlay - маркер. будет закрываться модальное окно по клике на подложку или нет
+  //closeClickOverlay - маркер. будет закрываться модальное окно по клику на подложку или нет
   function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
 
     const triggers = document.querySelectorAll(triggerSelector);

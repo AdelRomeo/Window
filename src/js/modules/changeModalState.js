@@ -1,4 +1,5 @@
 import checkNumInputs from './checkNumInputs';
+import checkFieldInputs from './checkFieldInputs';
 
 const changeModalState = (state) => {
   //форма окна
@@ -19,6 +20,7 @@ const changeModalState = (state) => {
   //elem - элемент с которым работаем
   //prop - свойство которое будем записывать в state
   function bindActionToElems(event, elem, prop) {
+    document.querySelector('.popup_calc_button').disabled = true;
     //перебираем все формы окон
     elem.forEach((item, index) => {
       //вешаем обработчик на каждый элемент
@@ -47,8 +49,13 @@ const changeModalState = (state) => {
                 }
               });
             } else {
-              //width и height
               state[prop] = item.value;
+              if (!state.width || !state.height){
+                document.querySelector('.popup_calc_button').disabled = true;
+              }
+              else {
+                document.querySelector('.popup_calc_button').disabled = false;
+              }
             }
             break;
           case 'SELECT':
