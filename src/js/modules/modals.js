@@ -11,6 +11,8 @@ const modals = () => {
     const close = document.querySelector(closeSelector);
     //все моадльные окна
     const windows = document.querySelectorAll('[data-modal]');
+    //ширина прокрутки
+    const scroll = calcScroll();
 
     //перебираем триггеры
     triggers.forEach(trigger => {
@@ -31,6 +33,8 @@ const modals = () => {
         modal.style.display = 'block';
         //запрещаем скролл страницы на время показа модального окна
         document.body.classList.add('modal-open');
+        document.body.style.marginRight = `${scroll}px`;
+
       });
     });
 
@@ -47,6 +51,7 @@ const modals = () => {
       //modal.style.display = 'none';
       //разрешаем скролл страницы на время показа модального окна
       document.body.classList.remove('modal-open');
+      document.body.style.marginRight = `0px`;
     });
 
     //клик по подложке модального окна
@@ -62,6 +67,7 @@ const modals = () => {
         //modal.style.display = 'none';
         //разрешаем скролл страницы на время показа модального окна
         document.body.classList.remove('modal-open');
+        document.body.style.marginRight = `0px`;
       }
     });
   }
@@ -76,6 +82,26 @@ const modals = () => {
       //запрещаем скролл страницы на время показа модального окна
       document.body.classList.add('modal-open');
     }, time);
+  }
+
+  //расчет ширины скрола страницы
+  function calcScroll(){
+    //создаем элемент
+    let div = document.createElement('div');
+    //назначаем стили
+    div.style.width = '50px';
+    div.style.height = '50px';
+    div.style.overflowY = 'scroll';
+    div.style.visibility = 'hidden';
+    //добавляем на страницу
+    document.body.appendChild(div);
+                      //берем полную ширину блока - отнимаем ширину без прокрутки = получаем ширину прокрутки
+    let scrollWidth = div.offsetWidth - div.clientWidth;
+    //удаляем элемент
+    div.remove();
+
+    //возвращаем значение прокрутки из функции
+    return scrollWidth;
   }
 
   //запускаем функции с нужными аргументами

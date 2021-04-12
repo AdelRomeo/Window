@@ -63,6 +63,9 @@ const forms = (state) => {
               document.querySelector('.popup_calc_end').style.display = 'none';
               //удаляем сообщение информирующие пользователя
               statusMessage.remove();
+              //разрешаем скролл страницы на время показа модального окна
+              document.body.classList.remove('modal-open');
+              document.body.style.marginRight = `0px`;
             }, 3000)
           });
         });

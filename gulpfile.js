@@ -4,8 +4,8 @@ const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 
-//const dist = "./dist/";
-const dist = "E:\\OpenServer\\OSPanel\\domains\\Window";
+const dist = "./dist/";
+//const dist = "E:\\OpenServer\\OSPanel\\domains\\Window";
 
 
 //отслеживание изменении html файла

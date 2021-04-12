@@ -12,10 +12,12 @@ window.addEventListener('DOMContentLoaded', ()=>{
 
   //объект в котором хранятся данные с нескольких модальных окон для отправки на сервер
   const modalState = {
+    //состояния по умолчанию
     'form': 0,
     'type': 'tree',
     'width': false,
     'height': false,
+    'profile': 'Холодное'
   };
 
   //до какого времени будет осчитываться таймер

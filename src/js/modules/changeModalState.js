@@ -49,7 +49,9 @@ const changeModalState = (state) => {
                 }
               });
             } else {
+              //ширина и высота
               state[prop] = item.value;
+              //если одно из значений пусто, то запрещаем переход к следующей форме
               if (!state.width || !state.height){
                 document.querySelector('.popup_calc_button').disabled = true;
               }
